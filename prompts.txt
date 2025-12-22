@@ -1,0 +1,108 @@
+**Prompt for Python Script Recreation:**
+
+Create a Python script that generates a seating arrangement for contact center agents based on an input Excel file containing agent schedules. The script should follow these requirements:
+
+1. **Input Handling:**
+   - Accept a single command-line argument: the path to an input Excel file containing agent schedules.
+   - Validate the existence of the input file and exit with an error message if it doesn’t exist [1].
+   - The input file has the following fields: ID | Name | Date | Start | Stop | Queue | Supervisor | Batch | Shift | Status
+
+2. **Output Filename Generation:**
+   - Generate an output filename dynamically using the input filename and a timestamp.
+   - The output filename should follow the format: `{prefix}_{timestamp}_seating_arrangement.xlsx`, where:
+     - `prefix` is the part of the input filename before the first underscore (e.g., if the input is `agents_2023.xlsx`, the prefix is `agents`).
+     - `timestamp` is the current date and time in the format `YYYYMMDD_HHMMSS` [1].
+
+3. **Data Processing:**
+   - Separate agents by morning and night shifts and assign separately, only non-overlapping shifts can be assigned on the same seats. For example:
+         5am, 6am and 7am will not overlap 3pm, 4pm and 5pm respectively so agents from the first three can be assigned the same seat as agents of the second 3 
+   - There can only be one agent assigned to a seat at any time. 1 morning shift and 1 night shift can be assigned to 2 agents when schedules are non-overlapping
+   - Load the input Excel file into a pandas DataFrame.
+   - Parse time values in the DataFrame, handling formats like `HH:MM`, `HH:MM:SS`, and special cases like `"OFF"` (which should be treated as `None`) [1].
+   - Ignore agents with `Status` set to `"Vacation"` or `"Training"`, or if their `Start` time is `"OFF"` [1].
+   - Calculate the sits required throughout the day and find the maximum number of seats required by adding the amount of people per shift schedule every day of the period.
+   - Try to maximize seating by assigning morning seats and night seats in non-overlapping schedules.
+   - Overlapping schedules are the ones that part of the time of the schedule range is in another schedule range even on the extremes. For example:
+      5am schedule ends at 2pm so it will be considered overlapping with the schedule that starts at 2pm and everything prior like shifts starting at 11am, 10am, 7am and 6am
+   - Assign agents to seat positions based on the following criteria:
+      * First by shift, especially to maximize utilization by assigning seats where they can be reutilized by maximum of 2 shifts  (morning and night)
+      * Second by queue, there are 3 Queues (IBC Support, Customer Support, BNS)
+      * Third use the Batch information to put more senior agents together with less experienced ones (Batch column has the format 'B6' for batch 6 the lower the number the higher seniority, and there is a Batch DH which are direct hires and didn't go through training and they have the highest seniority)
+      * Fourth by supervisor try as possible to join agents from the same team (meaning the same Supervisor)  
+   - The seating areas are as follows:
+      **Seat Areas and Ranges:**
+      - OPS1-A: Seats 1-12
+      - OPS1-B: Seats 13-18
+      - OPS1-C: Seats 19-24
+      - OPS1-D: Seats 25-39
+      - OPS1-E: Seats 40-47 
+      - OPS2: Seats 48-60
+      - OPS3: Seats 62-69
+      - TRN: Seats 71-100 (training)    
+      - If total agents assigned is 66 or less spare seats 46 and 47
+      - Seats 61 and 70 do not exist do not assign them.
+   - IBC Support queue has seats reserved in OPS2 and OPS3 during night shifts 
+   - Non-overlapping morning schedules can be assigned to OPS2 and OPS3 too (that would be 5am and 6am shifts)
+
+   - Training room can only be used if there is no training in the peak seating time and the amount of agents scheduled that date is greater than 68. 
+   - The schedules are as follows:
+      *Morning Shifts:
+         - 5AM: 05:00-14:00
+         - 6AM: 06:00-15:00
+         - 7AM: 07:00-16:00
+      Mixed Shifts:
+         - 10AM: 10:00-19:00
+         - 11AM: 11:00-20:00
+         - 2PM: 14:00-22:00
+      Night Shifts:
+         - 3PM: 15:00-23:00
+         - 3:30PM: 15:30-23:30
+         - 4PM: 16:00-00:00 (the next day)
+         - 5PM: 17:00-01:00 (the next day)        
+
+4. **Seat Assignment:**
+   - Implement a function to assign seats to agents based on their schedules (logic for this is not provided in the context, but the script should include a placeholder or basic implementation).
+   - Use peak_xtract.py as import to get the peak seeating of each day and then use it to calculate the sitting arrangement
+
+5. **Report Generation:**
+   - Save the processed DataFrame (with seat assignments) to an output Excel file using the generated filename [1].
+   - Output file should have 3 different worksheets:
+      * Morning Seating: all shifts from 5am to 11am
+      * Night Seating: all remaining shifts
+      * Full Seating: all shifts if the seat is reutilized then the content of the cell should be the name of morning agent / name of the night agent
+   - Show all seats on all of the worksheets
+   - The report on each worksheet should be have a column of Area, a column of Station (seat number), Dates (columns with all dates in the period order first by year, then month and then by day)
+   - Apply Auto Fit column width
+   - Apply colors by Queue and for Nesting
+   - Fill with Empty the cells not assigned
+ 
+
+6. **Script Structure:**
+   - Use `argparse` for command-line argument parsing [1].
+   - Include helper functions for:
+     - Generating the output filename (`generate_output_filename`).
+     - Parsing time values (`parse_time`).
+     - Determining whether to ignore an agent (`should_ignore_agent`).
+   - The script should be executable as a standalone program (i.e., include `if __name__ == "__main__":` and call `main()`) [1].
+
+7. **Error Handling:**
+   - Handle cases where time values are malformed or missing gracefully (e.g., return `None` for invalid times) [1].
+
+8. **Dependencies:**
+   - Use `pandas` for data manipulation, `openpyxl` or `xlsxwriter` for Excel file handling, and standard libraries like `os`, `sys`, `argparse`, and `datetime`.
+
+**Example Usage:**
+```bash
+python seating_arrangement.py input_agents.xlsx
+```
+
+**Output:**
+- An Excel file named like `input_20240515_143022_seating_arrangement.xlsx` containing the seating arrangement.
+- The cells under the dates should have the names on of the agents assigned to that seat on the morning  and then on another page the night shift agent assigned. 
+- Present 3 tables, one for the morning, one for the night and one with all the information. 
+- Apply table template to each sheet 
+- Apply AutoFit column width to all sheets
+- Apply color coding by supervisor and queue to each cell, use text color for supervisors and background color for Queues, also Nesting status should have it's own Background color
+- If possible apply filters to the columns
+- Add legend with colors used on a separate sheet.
+- use hight contrast color for text compare to the background colors

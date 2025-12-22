@@ -1,0 +1,26 @@
+{
+  "reserved_seats": [
+    61
+  ],
+  "priority": [
+    "supervisor",
+    "queue",
+    "batch"
+  ],
+  "area_constraints": {
+    "Assign A Minimum Of 3": [
+      "OPS 3"
+    ]
+  },
+  "proximity_rules": {},
+  "name_constraints": {},
+  "batch_constraints": {
+    "senior_first": true
+  },
+  "shift_constraints": {
+    "non_overlapping_only": false
+  },
+  "capacity_constraints": {},
+  "preferred_seats": {},
+  "avoid_seats": {}
+}

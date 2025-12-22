@@ -1,0 +1,22 @@
+Seating arrangement has to adjust to the following rules:
+
+Create rules and constraints for each queue.
+There are 99 seats and one is reserved always: 61; no agent should be assigned there ever, manual changes only.
+There are 30 seats in the Training room from 71 to 100; this can be used only if peak seating is above 68 in a day. 
+The peak seating in csv format for the upcoming period is:
+		
+	Shift,1/1/2026,1/2/2026,1/3/2026,1/4/2026,1/5/2026,1/6/2026,1/7/2026,1/8/2026,1/9/2026,1/10/2026,1/11/2026,12/22/2025,12/23/2025,12/24/2025,12/25/2025,12/26/2025,12/27/2025,12/28/2025,12/29/2025,12/30/2025,12/31/2025
+	Peak seating@17:00,57,65,67,67,60,68,63,67,67,72,71,47,46,47,44,55,50,51,56,59,63
+
+By reading the peak seating list determine if using the Training Room is necessary. 
+When the peak seating is equal or bigger than 69 enable the use of TRN the training room if no one is schedule for training at the time. Add seats from 91 to 100 first and then from 81 to 90 and at last 71 to 80 and if possible skip one seat in between to have more space.
+There are 3 Queues IBC Support, Customer Support and BNS. 
+IBC support has reserved positions 48 to 69, skipping 61 that is always reserved
+If IBC is schedule over 13, assign a minimum of 3 agents in OPS 3.
+Group agents by supervisor then queue then shift 
+Agents with status Training, Vacation or that are OFF should not be considered for seats.
+Agents with status Nesting should be seated together in one of the OPS1 subareas depending in the number of people in Nesting that day.
+Try as much as possible to arrange seats for same queues and schedules together in the different Areas
+IBC Support Queue has no morning shifts but reuse of the seats in the morning should not overlap with their schedules. Overlaping happens even when the end of shift in the morning is the same hour as the beginning of shift of the afternoon shfit
+Reuse seats as much as possible without overlapping.
+The output should be by day, so the seats is used everyday. At the end the output table should be the seats and areas in the rows and the dates in the period the columns and the cell contents should be the name of the agents even if there are 2 agents on the same chair on the day it should be "ame-morning-agent / name-afternoon-agent"
