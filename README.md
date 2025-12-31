@@ -1,10 +1,10 @@
-# Roster Database Solution
+# Roster Database Solution (PostgreSQL Version)
 
 This solution creates a database from the "Roster - December 2025 updated TC.xlsx" file with tables for different roles and attrition data.
 
 ## Solution Components
 
-1. **Database Schema** - SQLite database with tables for:
+1. **Database Schema** - PostgreSQL database with tables for:
    - Agents (Associates)
    - Supervisors
    - Trainers
@@ -40,7 +40,7 @@ All tables have unique constraints on Agent ID and ODOO ID to prevent duplicate 
 - Required Python packages (installed via `pip install -r requirements.txt`):
   - pandas
   - openpyxl
-  - sqlite3 (usually included with Python)
+  - psycopg2-binary
 
 ## Setup and Usage
 
@@ -49,23 +49,23 @@ All tables have unique constraints on Agent ID and ODOO ID to prevent duplicate 
    pip install -r requirements.txt
    ```
 
-2. **Run the solution**:
+2. **Start the PostgreSQL database**:
+   ```bash
+   docker-compose up -d
+   ```
+
+3. **Run the solution**:
    ```bash
    python run_solution.py [path/to/roster.xlsx]
    ```
 
    If no Excel file is provided as an argument, the script will use the first `.xlsx` or `.xls` file found in the current directory.
 
-3. **Run with Docker** (optional):
-   ```bash
-   docker-compose up
-   ```
-
 ## How It Works
 
 1. **Database Initialization**:
-   - Creates a `data` directory for persistent storage
-   - Initializes SQLite database with the schema defined in `init.sql`
+   - Starts a PostgreSQL database using Docker Compose
+   - Initializes the database with the schema defined in `init.sql`
 
 2. **Excel Parsing**:
    - Reads the "7MS main roster" sheet to populate role-based tables
@@ -164,6 +164,6 @@ All role-based tables have the same structure:
 ## Notes
 
 - The solution handles duplicate records by using UNIQUE constraints on Agent ID and ODOO ID
-- All data is stored in the `data/roster.db` SQLite database
+- All data is stored in a PostgreSQL database running in a Docker container
 - The Docker configuration ensures persistent storage of the database file
 - The solution is designed to work with the specific structure of the "Roster - December 2025 updated TC.xlsx" file

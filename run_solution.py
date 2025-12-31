@@ -48,9 +48,13 @@ def main():
     # Step 3: Show database statistics
     print("\n3. Database statistics:")
     try:
-        import sqlite3
-        db_path = os.path.join('data', 'roster.db')
-        conn = sqlite3.connect(db_path)
+        import psycopg2
+        conn = psycopg2.connect(
+            host=os.environ.get('DB_HOST', 'localhost'),
+            database=os.environ.get('DB_NAME', 'roster_db'),
+            user=os.environ.get('DB_USER', 'roster_user'),
+            password=os.environ.get('DB_PASSWORD', 'roster_password')
+        )
         cursor = conn.cursor()
         
         tables = ['agents', 'supervisors', 'trainers', 'quality_analysts', 'operations_managers', 'attrition']

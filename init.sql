@@ -1,14 +1,14 @@
--- Create tables for the Roster database
+-- Create tables for the Roster database (PostgreSQL version)
 
 -- Agents table for employees with Role = 'Associate'
-CREATE TABLE agents (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
+CREATE TABLE IF NOT EXISTS agents (
+    id SERIAL PRIMARY KEY,
     name TEXT NOT NULL,
     last_name TEXT NOT NULL,
     first_name TEXT NOT NULL,
     batch TEXT,
     agent_id TEXT UNIQUE,
-    odoo_id TEXT,
+    odoo_id TEXT UNIQUE,
     bo_user TEXT,
     axonify TEXT,
     supervisor TEXT,
@@ -27,14 +27,14 @@ CREATE TABLE agents (
 );
 
 -- Supervisors table for employees with Role = 'Supervisor'
-CREATE TABLE supervisors (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
+CREATE TABLE IF NOT EXISTS supervisors (
+    id SERIAL PRIMARY KEY,
     name TEXT NOT NULL,
     last_name TEXT NOT NULL,
     first_name TEXT NOT NULL,
     batch TEXT,
     agent_id TEXT UNIQUE,
-    odoo_id TEXT,
+    odoo_id TEXT UNIQUE,
     bo_user TEXT,
     axonify TEXT,
     supervisor TEXT,
@@ -53,14 +53,14 @@ CREATE TABLE supervisors (
 );
 
 -- Trainers table for employees with Role = 'Trainer'
-CREATE TABLE trainers (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
+CREATE TABLE IF NOT EXISTS trainers (
+    id SERIAL PRIMARY KEY,
     name TEXT NOT NULL,
     last_name TEXT NOT NULL,
     first_name TEXT NOT NULL,
     batch TEXT,
     agent_id TEXT UNIQUE,
-    odoo_id TEXT,
+    odoo_id TEXT UNIQUE,
     bo_user TEXT,
     axonify TEXT,
     supervisor TEXT,
@@ -79,14 +79,14 @@ CREATE TABLE trainers (
 );
 
 -- Quality Analysts table for employees with Role = 'Analyst'
-CREATE TABLE quality_analysts (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
+CREATE TABLE IF NOT EXISTS quality_analysts (
+    id SERIAL PRIMARY KEY,
     name TEXT NOT NULL,
     last_name TEXT NOT NULL,
     first_name TEXT NOT NULL,
     batch TEXT,
     agent_id TEXT UNIQUE,
-    odoo_id TEXT,
+    odoo_id TEXT UNIQUE,
     bo_user TEXT,
     axonify TEXT,
     supervisor TEXT,
@@ -105,14 +105,14 @@ CREATE TABLE quality_analysts (
 );
 
 -- Operations Managers table for employees with Role = 'OM'
-CREATE TABLE operations_managers (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
+CREATE TABLE IF NOT EXISTS operations_managers (
+    id SERIAL PRIMARY KEY,
     name TEXT NOT NULL,
     last_name TEXT NOT NULL,
     first_name TEXT NOT NULL,
     batch TEXT,
     agent_id TEXT UNIQUE,
-    odoo_id TEXT,
+    odoo_id TEXT UNIQUE,
     bo_user TEXT,
     axonify TEXT,
     supervisor TEXT,
@@ -131,8 +131,8 @@ CREATE TABLE operations_managers (
 );
 
 -- Attrition table
-CREATE TABLE attrition (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
+CREATE TABLE IF NOT EXISTS attrition (
+    id SERIAL PRIMARY KEY,
     name TEXT NOT NULL,
     last_name TEXT NOT NULL,
     first_name TEXT NOT NULL,
@@ -157,9 +157,9 @@ CREATE TABLE attrition (
 );
 
 -- Create indexes for better performance
-CREATE INDEX idx_agents_agent_id ON agents(agent_id);
-CREATE INDEX idx_supervisors_agent_id ON supervisors(agent_id);
-CREATE INDEX idx_trainers_agent_id ON trainers(agent_id);
-CREATE INDEX idx_quality_analysts_agent_id ON quality_analysts(agent_id);
-CREATE INDEX idx_operations_managers_agent_id ON operations_managers(agent_id);
-CREATE INDEX idx_attrition_agent_id ON attrition(agent_id);
+CREATE INDEX IF NOT EXISTS idx_agents_agent_id ON agents(agent_id);
+CREATE INDEX IF NOT EXISTS idx_supervisors_agent_id ON supervisors(agent_id);
+CREATE INDEX IF NOT EXISTS idx_trainers_agent_id ON trainers(agent_id);
+CREATE INDEX IF NOT EXISTS idx_quality_analysts_agent_id ON quality_analysts(agent_id);
+CREATE INDEX IF NOT EXISTS idx_operations_managers_agent_id ON operations_managers(agent_id);
+CREATE INDEX IF NOT EXISTS idx_attrition_agent_id ON attrition(agent_id);

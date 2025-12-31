@@ -3,19 +3,31 @@
 Verification script for the Roster Database Solution
 """
 
-import sqlite3
+import psycopg2
 import os
+
+def connect_to_db():
+    """Establish connection to the PostgreSQL database"""
+    try:
+        conn = psycopg2.connect(
+            host=os.environ.get('DB_HOST', 'localhost'),
+            database=os.environ.get('DB_NAME', 'roster_db'),
+            user=os.environ.get('DB_USER', 'roster_user'),
+            password=os.environ.get('DB_PASSWORD', 'roster_password')
+        )
+        return conn
+    except Exception as e:
+        print(f"Error connecting to database: {e}")
+        return None
 
 def verify_database():
     """Verify that the database was created with all tables"""
-    db_path = os.path.join("data", "roster.db")
-    
-    if not os.path.exists(db_path):
-        print("ERROR: Database file not found!")
+    conn = connect_to_db()
+    if not conn:
+        print("ERROR: Could not connect to database!")
         return False
     
     try:
-        conn = sqlite3.connect(db_path)
         cursor = conn.cursor()
         
         # List of expected tables
@@ -29,9 +41,13 @@ def verify_database():
         ]
         
         # Check if all tables exist
-        cursor.execute("SELECT name FROM sqlite_master WHERE type='table';")
+        cursor.execute("""
+            SELECT table_name 
+            FROM information_schema.tables 
+            WHERE table_schema = 'public' 
+            AND table_type = 'BASE TABLE'
+        """)
         existing_tables = [table[0] for table in cursor.fetchall()]
-        
         missing_tables = []
         for table in expected_tables:
             if table not in existing_tables:
@@ -59,12 +75,13 @@ def verify_database():
 
 def verify_sample_data():
     """Verify that sample data exists in the tables"""
-    db_path = os.path.join("data", "roster.db")
+    conn = connect_to_db()
+    if not conn:
+        print("ERROR: Could not connect to database!")
+        return False
     
     try:
-        conn = sqlite3.connect(db_path)
         cursor = conn.cursor()
-        
         # Check if there's data in the agents table
         cursor.execute("SELECT COUNT(*) FROM agents")
         agent_count = cursor.fetchone()[0]
@@ -89,7 +106,7 @@ def verify_sample_data():
             print("✓ Sample data found in attrition table")
             
             # Show first few attrition records
-            cursor.execute("SELECT AgentName, AgentID, TerminationDate FROM attrition LIMIT 3")
+            cursor.execute("SELECT name, agent_id, term_date FROM attrition LIMIT 3")
             attritions = cursor.fetchall()
             print("\nSample attrition records:")
             for attrition in attritions:

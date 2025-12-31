@@ -1,7 +1,7 @@
 import os
 import sys
 import pandas as pd
-import sqlite3
+import psycopg2
 from datetime import datetime
 
 # Add the current directory to the Python path
@@ -11,27 +11,36 @@ sys.path.append('.')
 import init_db
 import roster_parser
 
+def get_db_connection():
+    """Get database connection"""
+    return psycopg2.connect(
+        host="localhost",
+        database="roster_db",
+        user="roster_user",
+        password="roster_pass"
+    )
+
 def test_database_creation():
     """Test that the database is created with correct schema"""
     print("Testing database creation...")
-    
-    # Remove existing database if it exists
-    db_path = os.path.join('data', 'roster.db')
-    if os.path.exists(db_path):
-        os.remove(db_path)
     
     # Initialize the database
     init_db.init_db()
     
     # Connect to the database
-    conn = sqlite3.connect(db_path)
+    conn = get_db_connection()
     cursor = conn.cursor()
     
     # Check that all tables exist
     tables = ['agents', 'supervisors', 'trainers', 'quality_analysts', 'operations_managers', 'attrition']
     for table in tables:
-        cursor.execute(f"SELECT name FROM sqlite_master WHERE type='table' AND name='{table}';")
-        result = cursor.fetchone()
+        cursor.execute("""
+            SELECT EXISTS (
+                SELECT FROM information_schema.tables 
+                WHERE table_name = %s
+            );
+        """, (table,))
+        result = cursor.fetchone()[0]
         if result:
             print(f"✓ Table '{table}' exists")
         else:
@@ -84,8 +93,7 @@ def test_duplicate_prevention():
                 roster_parser.process_sheet(df, sheet_name)
     
         # Check database for correct number of records
-        db_path = os.path.join('data', 'roster.db')
-        conn = sqlite3.connect(db_path)
+        conn = get_db_connection()
         cursor = conn.cursor()
         
         cursor.execute("SELECT COUNT(*) FROM agents")

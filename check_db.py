@@ -1,11 +1,30 @@
-import sqlite3
+import psycopg2
+import os
+
+def connect_to_db():
+    """Establish connection to the PostgreSQL database"""
+    try:
+        conn = psycopg2.connect(
+            host=os.environ.get('DB_HOST', 'localhost'),
+            database=os.environ.get('DB_NAME', 'roster_db'),
+            user=os.environ.get('DB_USER', 'roster_user'),
+            password=os.environ.get('DB_PASSWORD', 'roster_password')
+        )
+        return conn
+    except Exception as e:
+        print(f"Error connecting to database: {e}")
+        return None
 
 # Connect to the database
-conn = sqlite3.connect('data/roster.db')
+conn = connect_to_db()
+if not conn:
+    print("Failed to connect to database")
+    exit(1)
+
 cursor = conn.cursor()
 
 # Get all tables
-cursor.execute("SELECT name FROM sqlite_master WHERE type='table'")
+cursor.execute("SELECT tablename FROM pg_tables WHERE schemaname = 'public'")
 tables = cursor.fetchall()
 
 print("Tables in the database:")

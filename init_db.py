@@ -10,9 +10,10 @@ def init_db():
     db_user = os.environ.get('DB_USER', 'roster_user')
     db_password = os.environ.get('DB_PASSWORD', 'roster_password')
     
-    # Connect to PostgreSQL server
+    # Connect to PostgreSQL server (default database)
     conn = psycopg2.connect(
         host=db_host,
+        database="postgres",  # Connect to default database first
         user=db_user,
         password=db_password
     )
