@@ -149,18 +149,12 @@ def find_data_start(df):
     for idx, row in df.iterrows():
         # Count non-null values in the row
         non_null_count = row.count()
-        
-        # If row has substantial data (at least 3 non-null values)
-        if non_null_count >= 3:
+        # If row has substantial data and contains typical column names
+        if non_null_count > 5:  # At least 5 non-null values
             # Check if this row contains common column names
-            row_values = [str(val).lower() if pd.notnull(val) else '' for val in row]
+            row_values = [str(val).lower() for val in row if pd.notnull(val)]
             common_columns = ['name', 'agent', 'id', 'role', 'shift', 'schedule', 'department']
-            
-            # Count how many common column names are in this row
-            matching_columns = sum(1 for val in row_values if any(col in val for col in common_columns))
-            
-            # If we have at least 2 matching column names, consider this the header
-            if matching_columns >= 2:
+            if any(col in ' '.join(row_values) for col in common_columns):
                 return idx
     return 0  # Default to first row if no header found
 
@@ -168,28 +162,32 @@ def process_sheet(df, sheet_name):
     """Process a dataframe from an Excel sheet"""
     print(f"Processing sheet: {sheet_name}")
     print(f"Original number of rows: {len(df)}")
-    print(f"Original column names: {df.columns.tolist()}")
     
-    # Find the actual start of data (skip empty rows)
-    data_start_row = find_data_start(df)
-    print(f"Found data starting at row {data_start_row}")
+    # Check if column names are 'Unnamed' (indicating pandas couldn't find proper headers)
+    unnamed_columns = [col for col in df.columns if str(col).startswith('Unnamed')]
     
-    # Adjust DataFrame to start from the correct row
-    if data_start_row < len(df):
-        new_header = df.iloc[data_start_row]  # Use the row as column names
-        df = df[data_start_row+1:]  # Take data after the header row
+    if len(unnamed_columns) > len(df.columns) // 2:  # If more than half are 'Unnamed'
+        print("Detected 'Unnamed' columns, adjusting data structure...")
+        # Use the first row as column names
+        new_header = df.iloc[0]  # First row as header
+        df = df[1:]  # Remove the first row from data
         df.columns = new_header  # Set the new column names
-        
-        # Reset index to ensure proper handling
-        df = df.reset_index(drop=True)
-        
-        # Clean column names
-        df.columns = [str(col).strip() if pd.notnull(col) else '' for col in df.columns]
-        
-        print(f"Adjusted number of rows: {len(df)}")
+        print("Adjusted column names using first row of data")
     else:
-        print("No data found after header row, skipping sheet...")
-        return
+        # Find the actual start of data (skip empty rows)
+        data_start_row = find_data_start(df)
+        if data_start_row > 0:
+            print(f"Found data starting at row {data_start_row}")
+            # Adjust DataFrame to start from the correct row
+            new_header = df.iloc[data_start_row]  # Use the row as column names
+            df = df[data_start_row+1:]  # Take data after the header row
+            df.columns = new_header  # Set the new column names
+    
+    # Clean column names
+    df.columns = [str(col).strip() if pd.notnull(col) else '' for col in df.columns]
+    
+    print(f"Adjusted number of rows: {len(df)}")
+    print(f"Column names: {list(df.columns)}")
     
     # Connect to database
     conn = connect_to_db()

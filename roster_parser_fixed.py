@@ -149,18 +149,12 @@ def find_data_start(df):
     for idx, row in df.iterrows():
         # Count non-null values in the row
         non_null_count = row.count()
-        
-        # If row has substantial data (at least 3 non-null values)
-        if non_null_count >= 3:
+        # If row has substantial data and contains typical column names
+        if non_null_count > 5:  # At least 5 non-null values
             # Check if this row contains common column names
-            row_values = [str(val).lower() if pd.notnull(val) else '' for val in row]
+            row_values = [str(val).lower() for val in row if pd.notnull(val)]
             common_columns = ['name', 'agent', 'id', 'role', 'shift', 'schedule', 'department']
-            
-            # Count how many common column names are in this row
-            matching_columns = sum(1 for val in row_values if any(col in val for col in common_columns))
-            
-            # If we have at least 2 matching column names, consider this the header
-            if matching_columns >= 2:
+            if any(col in ' '.join(row_values) for col in common_columns):
                 return idx
     return 0  # Default to first row if no header found
 
@@ -168,28 +162,29 @@ def process_sheet(df, sheet_name):
     """Process a dataframe from an Excel sheet"""
     print(f"Processing sheet: {sheet_name}")
     print(f"Original number of rows: {len(df)}")
-    print(f"Original column names: {df.columns.tolist()}")
     
     # Find the actual start of data (skip empty rows)
     data_start_row = find_data_start(df)
-    print(f"Found data starting at row {data_start_row}")
-    
-    # Adjust DataFrame to start from the correct row
-    if data_start_row < len(df):
+    if data_start_row > 0:
+        print(f"Found data starting at row {data_start_row}")
+        # Adjust DataFrame to start from the correct row
         new_header = df.iloc[data_start_row]  # Use the row as column names
         df = df[data_start_row+1:]  # Take data after the header row
         df.columns = new_header  # Set the new column names
-        
-        # Reset index to ensure proper handling
-        df = df.reset_index(drop=True)
-        
-        # Clean column names
-        df.columns = [str(col).strip() if pd.notnull(col) else '' for col in df.columns]
-        
-        print(f"Adjusted number of rows: {len(df)}")
     else:
-        print("No data found after header row, skipping sheet...")
-        return
+        # Even if data_start_row is 0, we still need to set the column names correctly
+        # This handles the case where pandas didn't correctly identify the header row
+        new_header = df.iloc[0]  # Use the first row as column names
+        df = df[1:]  # Take data after the header row
+        df.columns = new_header  # Set the new column names
+    
+    # Clean column names
+    df.columns = [str(col).strip() if pd.notnull(col) else '' for col in df.columns]
+    
+    # Remove any remaining completely empty rows
+    df = df.dropna(how='all').reset_index(drop=True)
+    
+    print(f"Adjusted number of rows: {len(df)}")
     
     # Connect to database
     conn = connect_to_db()
@@ -245,6 +240,23 @@ def process_sheet(df, sheet_name):
     finally:
         conn.close()
 
+def read_excel_sheet_fixed(file_path, sheet_name):
+    """Read an Excel sheet with proper handling of empty rows before headers"""
+    # First, read the sheet without headers to identify the actual header row
+    df_raw = pd.read_excel(file_path, sheet_name=sheet_name, header=None)
+    
+    # Find the actual start of data
+    data_start_row = find_data_start(df_raw)
+    
+    # Now read the sheet again with the correct header row
+    if data_start_row > 0:
+        df = pd.read_excel(file_path, sheet_name=sheet_name, header=data_start_row)
+    else:
+        # Even for row 0, we explicitly set it as header to ensure correct column names
+        df = pd.read_excel(file_path, sheet_name=sheet_name, header=0)
+    
+    return df
+
 def main():
     """Main function to parse Excel file and populate database"""
     # Check if Excel file is provided as argument
@@ -270,20 +282,32 @@ def main():
         # Read the Excel file
         print(f"Reading Excel file: {excel_file}")
         
-        # Read all sheets
-        excel_data = pd.read_excel(excel_file, sheet_name=None)
+        # Get list of sheet names
+        sheet_names = pd.ExcelFile(excel_file).sheet_names
+        print(f"Found sheets: {sheet_names}")
         
         # Process each sheet
-        for sheet_name, df in excel_data.items():
-            if not df.empty:
-                process_sheet(df, sheet_name)
-            else:
-                print(f"Sheet '{sheet_name}' is empty, skipping...")
+        for sheet_name in sheet_names:
+            print(f"\nProcessing sheet: {sheet_name}")
+            try:
+                # Read specific sheet with proper header handling
+                df = read_excel_sheet_fixed(excel_file, sheet_name)
+                
+                if not df.empty:
+                    process_sheet(df, sheet_name)
+                else:
+                    print(f"Sheet '{sheet_name}' is empty, skipping...")
+            except Exception as e:
+                print(f"Error processing sheet {sheet_name}: {e}")
+                import traceback
+                traceback.print_exc()
         
-        print("Excel file processing complete!")
+        print("\nExcel file processing complete!")
         
     except Exception as e:
         print(f"Error reading Excel file: {e}")
+        import traceback
+        traceback.print_exc()
 
 if __name__ == "__main__":
     main()

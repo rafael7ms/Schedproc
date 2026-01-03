@@ -38,6 +38,23 @@ def init_db():
     )
     cursor = conn.cursor()
     
+    # Clear existing data from all tables
+    tables = [
+        'agents',
+        'supervisors', 
+        'trainers',
+        'quality_analysts',
+        'operations_managers',
+        'attrition'
+    ]
+    
+    for table in tables:
+        try:
+            cursor.execute(f"DELETE FROM {table}")
+            print(f"Cleared data from {table}")
+        except psycopg2.Error as e:
+            print(f"Error clearing {table}: {e}")
+    
     # Read the SQL schema from init.sql file
     with open('init.sql', 'r') as f:
         schema = f.read()
