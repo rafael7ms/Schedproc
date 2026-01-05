@@ -630,3 +630,375 @@ Processing Statistics:
 2025-12-17 08:38:44,575 - INFO - Records marked as Vacation: 16
 2025-12-17 08:38:44,575 - INFO - Records with special codes: 158
 2025-12-17 08:38:44,575 - INFO - Processing completed successfully! Output: .\Schedules Dec 22nd - Jan 11th_20251217_083843_clean.xlsx
+2026-01-03 13:42:24,153 - INFO - Processing schedule file: .\January큦 schedules.xlsx
+2026-01-03 13:42:24,279 - INFO - Original columns: ['Employee', 'Unnamed: 1', 'Unnamed: 2', 'Date', 'Unnamed: 4', 'Unnamed: 5', 'Earliest', 'Latest', 'Work', 'Unnamed: 9', 'General', 'Unnamed: 11']
+2026-01-03 13:42:24,279 - INFO - Original shape: (3473, 12)
+2026-01-03 13:42:24,280 - INFO - Standardized columns: ['Employee', '1', '2', 'Date', '4', '5', 'Start', 'Stop', 'Work', '9', 'General', '11']
+2026-01-03 13:42:24,281 - ERROR - Error processing files: Could not determine agent name from columns
+2026-01-03 13:42:24,281 - ERROR - Processing failed: Could not determine agent name from columns
+2026-01-03 13:45:59,562 - INFO - Processing schedule file: .\January큦 schedules.xlsx
+2026-01-03 13:45:59,572 - ERROR - Error processing files: [Errno 13] Permission denied: '.\\January큦 schedules.xlsx'
+2026-01-03 13:45:59,573 - ERROR - Processing failed: [Errno 13] Permission denied: '.\\January큦 schedules.xlsx'
+2026-01-03 13:46:09,431 - INFO - Processing schedule file: .\January큦 schedules.xlsx
+2026-01-03 13:46:09,554 - INFO - Original columns: ['ID', 'First Name', ' Last Name', 'Date', 'Day', 'Start', 'Stop']
+2026-01-03 13:46:09,555 - INFO - Original shape: (3472, 7)
+2026-01-03 13:46:09,556 - INFO - Standardized columns: ['ID', 'First Name', 'Last Name', 'Date', 'Day', 'Start', 'Stop']
+2026-01-03 13:46:09,605 - INFO - Processed 3472 schedule records
+2026-01-03 13:46:09,606 - INFO - Processing roster file: .\Roster - January  2026 (1).xlsx
+2026-01-03 13:46:09,636 - ERROR - Error processing files: Missing required columns in roster file: Queue
+2026-01-03 13:46:09,636 - ERROR - Processing failed: Missing required columns in roster file: Queue
+2026-01-03 13:54:32,299 - INFO - Processing schedule file: .\January큦 schedules.xlsx
+2026-01-03 13:54:32,449 - INFO - Original columns: ['ID', 'First Name', ' Last Name', 'Date', 'Day', 'Start', 'Stop']
+2026-01-03 13:54:32,450 - INFO - Original shape: (3472, 7)
+2026-01-03 13:54:32,451 - INFO - Standardized columns: ['ID', 'First Name', 'Last Name', 'Date', 'Day', 'Start', 'Stop']
+2026-01-03 13:54:32,503 - INFO - Processed 3472 schedule records
+2026-01-03 13:54:32,504 - INFO - Processing roster file: .\Roster - January  2026 (1).xlsx
+2026-01-03 13:54:32,504 - ERROR - Error processing files: [Errno 13] Permission denied: '.\\Roster - January  2026 (1).xlsx'
+2026-01-03 13:54:32,505 - ERROR - Processing failed: [Errno 13] Permission denied: '.\\Roster - January  2026 (1).xlsx'
+2026-01-03 13:54:44,971 - INFO - Processing schedule file: .\January큦 schedules.xlsx
+2026-01-03 13:54:45,108 - INFO - Original columns: ['ID', 'First Name', ' Last Name', 'Date', 'Day', 'Start', 'Stop']
+2026-01-03 13:54:45,109 - INFO - Original shape: (3472, 7)
+2026-01-03 13:54:45,110 - INFO - Standardized columns: ['ID', 'First Name', 'Last Name', 'Date', 'Day', 'Start', 'Stop']
+2026-01-03 13:54:45,163 - INFO - Processed 3472 schedule records
+2026-01-03 13:54:45,164 - INFO - Processing roster file: .\Roster - January  2026 (1).xlsx
+2026-01-03 13:54:45,205 - ERROR - Error processing files: The truth value of a Series is ambiguous. Use a.empty, a.bool(), a.item(), a.any() or a.all().
+2026-01-03 13:54:45,206 - ERROR - Processing failed: The truth value of a Series is ambiguous. Use a.empty, a.bool(), a.item(), a.any() or a.all().
+2026-01-03 13:55:23,332 - INFO - Processing schedule file: .\January큦 schedules.xlsx
+2026-01-03 13:55:23,569 - INFO - Original columns: ['ID', 'First Name', ' Last Name', 'Date', 'Day', 'Start', 'Stop']
+2026-01-03 13:55:23,570 - INFO - Original shape: (3472, 7)
+2026-01-03 13:55:23,571 - INFO - Standardized columns: ['ID', 'First Name', 'Last Name', 'Date', 'Day', 'Start', 'Stop']
+2026-01-03 13:55:23,660 - INFO - Processed 3472 schedule records
+2026-01-03 13:55:23,661 - INFO - Processing roster file: .\Roster - January  2026 (1).xlsx
+2026-01-03 13:55:23,740 - ERROR - Error processing files: The truth value of a Series is ambiguous. Use a.empty, a.bool(), a.item(), a.any() or a.all().
+2026-01-03 13:55:23,741 - ERROR - Processing failed: The truth value of a Series is ambiguous. Use a.empty, a.bool(), a.item(), a.any() or a.all().
+2026-01-03 14:08:32,980 - INFO - Processing schedule file: .\January큦 schedules.xlsx
+2026-01-03 14:08:33,083 - INFO - Original columns: ['ID', 'First Name', ' Last Name', 'Date', 'Day', 'Start', 'Stop']
+2026-01-03 14:08:33,083 - INFO - Original shape: (3472, 7)
+2026-01-03 14:08:33,084 - INFO - Standardized columns: ['ID', 'First Name', 'Last Name', 'Date', 'Day', 'Start', 'Stop']
+2026-01-03 14:08:33,120 - INFO - Processed 3472 schedule records
+2026-01-03 14:08:33,121 - INFO - Processing roster file: .\Roster - January  2026 (1).xlsx
+2026-01-03 14:08:33,152 - ERROR - Error processing files: The truth value of a Series is ambiguous. Use a.empty, a.bool(), a.item(), a.any() or a.all().
+2026-01-03 14:08:33,153 - ERROR - Processing failed: The truth value of a Series is ambiguous. Use a.empty, a.bool(), a.item(), a.any() or a.all().
+2026-01-03 14:39:50,171 - INFO - Processing schedule file: .\January큦 schedules.xlsx
+2026-01-03 14:39:50,277 - INFO - Original columns: ['ID', 'First Name', ' Last Name', 'Date', 'Day', 'Start', 'Stop']
+2026-01-03 14:39:50,278 - INFO - Original shape: (3472, 7)
+2026-01-03 14:39:50,278 - INFO - Standardized columns: ['ID', 'First Name', 'Last Name', 'Date', 'Day', 'Start', 'Stop']
+2026-01-03 14:39:50,317 - INFO - Processed 3472 schedule records
+2026-01-03 14:39:50,319 - INFO - Processing roster file: .\Roster - January  2026 (1).xlsx
+2026-01-03 14:39:50,353 - ERROR - Error processing files: The truth value of a Series is ambiguous. Use a.empty, a.bool(), a.item(), a.any() or a.all().
+2026-01-03 14:39:50,353 - ERROR - Processing failed: The truth value of a Series is ambiguous. Use a.empty, a.bool(), a.item(), a.any() or a.all().
+2026-01-03 14:42:30,726 - INFO - Processing schedule file: .\January큦 schedules.xlsx
+2026-01-03 14:42:30,913 - INFO - Original columns: ['ID', 'First Name', ' Last Name', 'Date', 'Day', 'Start', 'Stop']
+2026-01-03 14:42:30,914 - INFO - Original shape: (3472, 7)
+2026-01-03 14:42:30,914 - INFO - Standardized columns: ['ID', 'First Name', 'Last Name', 'Date', 'Day', 'Start', 'Stop']
+2026-01-03 14:42:30,979 - INFO - Processed 3472 schedule records
+2026-01-03 14:42:30,980 - INFO - Processing roster file: .\Roster - January  2026 (1).xlsx
+2026-01-03 14:42:31,037 - ERROR - Error processing files: The truth value of a Series is ambiguous. Use a.empty, a.bool(), a.item(), a.any() or a.all().
+2026-01-03 14:42:31,037 - ERROR - Processing failed: The truth value of a Series is ambiguous. Use a.empty, a.bool(), a.item(), a.any() or a.all().
+2026-01-03 14:45:40,170 - INFO - Processing schedule file: .\January큦 schedules.xlsx
+2026-01-03 14:45:40,436 - INFO - Original columns: ['ID', 'First Name', ' Last Name', 'Date', 'Day', 'Start', 'Stop']
+2026-01-03 14:45:40,437 - INFO - Original shape: (3472, 7)
+2026-01-03 14:45:40,438 - INFO - Standardized columns: ['ID', 'First Name', 'Last Name', 'Date', 'Day', 'Start', 'Stop']
+2026-01-03 14:45:40,519 - INFO - Processed 3472 schedule records
+2026-01-03 14:45:40,520 - INFO - Processing roster file: .\Roster - January  2026 (1).xlsx
+2026-01-03 14:45:40,570 - INFO - Roster columns after standardization: ['#', 'Name', 'Last Name', 'First Name', 'Batch', 'ID', 'ID', 'User', 'Axonify', 'Supervisor', 'Manager', 'Tier', 'Shift', 'Schedule', 'Queue', 'Role', 'Date', 'Date', 'Date', 'Date']
+2026-01-03 14:45:40,571 - ERROR - Error processing files: The truth value of a Series is ambiguous. Use a.empty, a.bool(), a.item(), a.any() or a.all().
+2026-01-03 14:45:40,572 - ERROR - Processing failed: The truth value of a Series is ambiguous. Use a.empty, a.bool(), a.item(), a.any() or a.all().
+2026-01-03 14:53:02,249 - INFO - Processing schedule file: .\January큦 schedules.xlsx
+2026-01-03 14:53:02,381 - INFO - Original columns: ['ID', 'First Name', ' Last Name', 'Date', 'Day', 'Start', 'Stop']
+2026-01-03 14:53:02,382 - INFO - Original shape: (3472, 7)
+2026-01-03 14:53:02,382 - INFO - Standardized columns: ['ID', 'First Name', 'Last Name', 'Date', 'Day', 'Start', 'Stop']
+2026-01-03 14:53:02,429 - INFO - Processed 3472 schedule records
+2026-01-03 14:53:02,430 - INFO - Processing roster file: .\Roster - January  2026 (1).xlsx
+2026-01-03 14:53:02,431 - ERROR - Error processing files: [Errno 13] Permission denied: '.\\Roster - January  2026 (1).xlsx'
+2026-01-03 14:53:02,432 - ERROR - Processing failed: [Errno 13] Permission denied: '.\\Roster - January  2026 (1).xlsx'
+2026-01-03 14:53:12,661 - INFO - Processing schedule file: .\January큦 schedules.xlsx
+2026-01-03 14:53:12,810 - INFO - Original columns: ['ID', 'First Name', ' Last Name', 'Date', 'Day', 'Start', 'Stop']
+2026-01-03 14:53:12,811 - INFO - Original shape: (3472, 7)
+2026-01-03 14:53:12,812 - INFO - Standardized columns: ['ID', 'First Name', 'Last Name', 'Date', 'Day', 'Start', 'Stop']
+2026-01-03 14:53:12,870 - INFO - Processed 3472 schedule records
+2026-01-03 14:53:12,871 - INFO - Processing roster file: .\Roster - January  2026 (1).xlsx
+2026-01-03 14:53:12,912 - INFO - Roster columns after standardization: ['ID', 'Queue', 'Supervisor', 'Shift', 'Batch']
+2026-01-03 14:53:12,913 - INFO - Processed 132 roster records
+2026-01-03 14:53:12,914 - INFO - Processing code file: .\Exceptions.xlsx
+2026-01-03 14:53:12,942 - INFO - Processed 338 code records
+2026-01-03 14:53:12,943 - INFO - Merging data from all sources
+2026-01-03 14:53:12,949 - ERROR - Error processing files: DataFrame index must be unique for orient='index'.
+2026-01-03 14:53:12,950 - ERROR - Processing failed: DataFrame index must be unique for orient='index'.
+2026-01-03 14:59:56,922 - INFO - Processing schedule file: .\January큦 schedules.xlsx
+2026-01-03 14:59:57,097 - INFO - Original columns: ['ID', 'First Name', ' Last Name', 'Date', 'Day', 'Start', 'Stop']
+2026-01-03 14:59:57,098 - INFO - Original shape: (3472, 7)
+2026-01-03 14:59:57,099 - INFO - Standardized columns: ['ID', 'First Name', 'Last Name', 'Date', 'Day', 'Start', 'Stop']
+2026-01-03 14:59:57,165 - INFO - Processed 3472 schedule records
+2026-01-03 14:59:57,166 - INFO - Processing roster file: .\Roster - January  2026 (1).xlsx
+2026-01-03 14:59:57,167 - ERROR - Error processing files: [Errno 13] Permission denied: '.\\Roster - January  2026 (1).xlsx'
+2026-01-03 14:59:57,167 - ERROR - Processing failed: [Errno 13] Permission denied: '.\\Roster - January  2026 (1).xlsx'
+2026-01-03 15:00:05,850 - INFO - Processing schedule file: .\January큦 schedules.xlsx
+2026-01-03 15:00:06,029 - INFO - Original columns: ['ID', 'First Name', ' Last Name', 'Date', 'Day', 'Start', 'Stop']
+2026-01-03 15:00:06,030 - INFO - Original shape: (3472, 7)
+2026-01-03 15:00:06,031 - INFO - Standardized columns: ['ID', 'First Name', 'Last Name', 'Date', 'Day', 'Start', 'Stop']
+2026-01-03 15:00:06,097 - INFO - Processed 3472 schedule records
+2026-01-03 15:00:06,098 - INFO - Processing roster file: .\Roster - January  2026 (1).xlsx
+2026-01-03 15:00:06,148 - INFO - Roster columns after standardization: ['ID', 'Queue', 'Supervisor', 'Shift', 'Batch']
+2026-01-03 15:00:06,150 - INFO - Processed 132 roster records
+2026-01-03 15:00:06,151 - INFO - Processing code file: .\Exceptions.xlsx
+2026-01-03 15:00:06,180 - INFO - Processed 338 code records
+2026-01-03 15:00:06,182 - INFO - Merging data from all sources
+2026-01-03 15:00:06,185 - ERROR - Error processing files: DataFrame index must be unique for orient='index'.
+2026-01-03 15:00:06,186 - ERROR - Processing failed: DataFrame index must be unique for orient='index'.
+2026-01-03 15:01:01,302 - INFO - Processing schedule file: .\January큦 schedules.xlsx
+2026-01-03 15:01:01,636 - INFO - Original columns: ['ID', 'First Name', ' Last Name', 'Date', 'Day', 'Start', 'Stop']
+2026-01-03 15:01:01,638 - INFO - Original shape: (3472, 7)
+2026-01-03 15:01:01,639 - INFO - Standardized columns: ['ID', 'First Name', 'Last Name', 'Date', 'Day', 'Start', 'Stop']
+2026-01-03 15:01:01,744 - INFO - Processed 3472 schedule records
+2026-01-03 15:01:01,745 - INFO - Processing roster file: .\Roster - January  2026 (1).xlsx
+2026-01-03 15:01:01,836 - INFO - Roster columns after standardization: ['ID', 'Queue', 'Supervisor', 'Shift', 'Batch']
+2026-01-03 15:01:01,839 - INFO - Processed 132 roster records
+2026-01-03 15:01:01,841 - INFO - Processing code file: .\Exceptions.xlsx
+2026-01-03 15:01:01,887 - INFO - Processed 338 code records
+2026-01-03 15:01:01,890 - INFO - Merging data from all sources
+2026-01-03 15:01:01,893 - ERROR - Error processing files: DataFrame index must be unique for orient='index'.
+2026-01-03 15:01:01,894 - ERROR - Processing failed: DataFrame index must be unique for orient='index'.
+2026-01-03 15:03:01,622 - INFO - Processing schedule file: .\January큦 schedules.xlsx
+2026-01-03 15:03:01,833 - INFO - Original columns: ['ID', 'First Name', ' Last Name', 'Date', 'Day', 'Start', 'Stop']
+2026-01-03 15:03:01,834 - INFO - Original shape: (3472, 7)
+2026-01-03 15:03:01,835 - INFO - Standardized columns: ['ID', 'First Name', 'Last Name', 'Date', 'Day', 'Start', 'Stop']
+2026-01-03 15:03:01,907 - INFO - Processed 3472 schedule records
+2026-01-03 15:03:01,908 - INFO - Processing roster file: .\Roster - January  2026 (1).xlsx
+2026-01-03 15:03:01,966 - INFO - Roster columns after standardization: ['ID', 'Queue', 'Supervisor', 'Shift', 'Batch']
+2026-01-03 15:03:01,967 - INFO - Processed 132 roster records
+2026-01-03 15:03:01,968 - INFO - Processing code file: .\Exceptions.xlsx
+2026-01-03 15:03:02,000 - INFO - Processed 338 code records
+2026-01-03 15:03:02,001 - INFO - Merging data from all sources
+2026-01-03 15:03:02,005 - ERROR - Error processing files: DataFrame index must be unique for orient='index'.
+2026-01-03 15:03:02,007 - ERROR - Processing failed: DataFrame index must be unique for orient='index'.
+2026-01-03 15:04:19,132 - INFO - Processing schedule file: .\January큦 schedules.xlsx
+2026-01-03 15:04:19,353 - INFO - Original columns: ['ID', 'First Name', ' Last Name', 'Date', 'Day', 'Start', 'Stop']
+2026-01-03 15:04:19,355 - INFO - Original shape: (3472, 7)
+2026-01-03 15:04:19,356 - INFO - Standardized columns: ['ID', 'First Name', 'Last Name', 'Date', 'Day', 'Start', 'Stop']
+2026-01-03 15:04:19,432 - INFO - Processed 3472 schedule records
+2026-01-03 15:04:19,433 - INFO - Processing roster file: .\Roster - January  2026 (1).xlsx
+2026-01-03 15:04:19,485 - INFO - Roster columns after standardization: ['ID', 'Queue', 'Supervisor', 'Shift', 'Batch']
+2026-01-03 15:04:19,486 - INFO - Processed 132 roster records
+2026-01-03 15:04:19,487 - INFO - Processing code file: .\Exceptions.xlsx
+2026-01-03 15:04:19,517 - INFO - Processed 338 code records
+2026-01-03 15:04:19,522 - INFO - Merging data from all sources
+2026-01-03 15:04:19,525 - ERROR - Error processing files: DataFrame index must be unique for orient='index'.
+2026-01-03 15:04:19,525 - ERROR - Processing failed: DataFrame index must be unique for orient='index'.
+2026-01-03 15:08:35,512 - INFO - Processing schedule file: .\January큦 schedules.xlsx
+2026-01-03 15:08:35,692 - INFO - Original columns: ['ID', 'First Name', ' Last Name', 'Date', 'Day', 'Start', 'Stop']
+2026-01-03 15:08:35,692 - INFO - Original shape: (3472, 7)
+2026-01-03 15:08:35,693 - INFO - Standardized columns: ['ID', 'First Name', 'Last Name', 'Date', 'Day', 'Start', 'Stop']
+2026-01-03 15:08:35,762 - INFO - Processed 3472 schedule records
+2026-01-03 15:08:35,764 - INFO - Schedule file processed ok!
+2026-01-03 15:08:35,765 - INFO - Processing roster file: .\Roster - January  2026 (1).xlsx
+2026-01-03 15:08:35,811 - INFO - Roster columns after standardization: ['ID', 'Queue', 'Supervisor', 'Shift', 'Batch']
+2026-01-03 15:08:35,812 - INFO - Processed 132 roster records
+2026-01-03 15:08:35,813 - INFO - Roster file processed ok!
+2026-01-03 15:08:35,815 - INFO - Processing code file: .\Exceptions.xlsx
+2026-01-03 15:08:35,842 - INFO - Processed 338 code records
+2026-01-03 15:08:35,844 - INFO - Code file processed ok!
+2026-01-03 15:08:35,845 - INFO - Merging data from all sources
+2026-01-03 15:08:35,851 - ERROR - Error processing files: DataFrame index must be unique for orient='index'.
+2026-01-03 15:08:35,852 - ERROR - Processing failed: DataFrame index must be unique for orient='index'.
+2026-01-03 15:09:08,494 - INFO - Processing schedule file: .\January큦 schedules.xlsx
+2026-01-03 15:09:08,680 - INFO - Original columns: ['ID', 'First Name', ' Last Name', 'Date', 'Day', 'Start', 'Stop']
+2026-01-03 15:09:08,680 - INFO - Original shape: (3472, 7)
+2026-01-03 15:09:08,681 - INFO - Standardized columns: ['ID', 'First Name', 'Last Name', 'Date', 'Day', 'Start', 'Stop']
+2026-01-03 15:09:08,761 - INFO - Processed 3472 schedule records
+2026-01-03 15:09:08,762 - INFO - Schedule file processed ok!
+2026-01-03 15:09:08,763 - INFO - Processing roster file: .\Roster - January  2026 (1).xlsx
+2026-01-03 15:09:08,828 - INFO - Roster columns after standardization: ['ID', 'Queue', 'Supervisor', 'Shift', 'Batch']
+2026-01-03 15:09:08,830 - INFO - Processed 132 roster records
+2026-01-03 15:09:08,831 - INFO - Roster file processed ok!
+2026-01-03 15:09:08,832 - INFO - Processing code file: .\Exceptions.xlsx
+2026-01-03 15:09:08,869 - INFO - Processed 338 code records
+2026-01-03 15:09:08,871 - INFO - Code file processed ok!
+2026-01-03 15:09:08,872 - INFO - Merging data from all sources
+2026-01-03 15:09:08,874 - ERROR - Error processing files: DataFrame index must be unique for orient='index'.
+2026-01-03 15:09:08,875 - ERROR - Processing failed: DataFrame index must be unique for orient='index'.
+2026-01-03 15:42:40,642 - INFO - Processing schedule file: .\January큦 schedules.xlsx
+2026-01-03 15:42:40,769 - INFO - Original columns: ['ID', 'First Name', ' Last Name', 'Date', 'Day', 'Start', 'Stop']
+2026-01-03 15:42:40,770 - INFO - Original shape: (3472, 7)
+2026-01-03 15:42:40,771 - INFO - Standardized columns: ['ID', 'First Name', 'Last Name', 'Date', 'Day', 'Start', 'Stop']
+2026-01-03 15:42:40,819 - INFO - Processed 3472 schedule records
+2026-01-03 15:42:40,820 - INFO - Schedule file processed ok!
+2026-01-03 15:42:40,821 - INFO - Processing roster file: .\Roster - January  2026 (1).xlsx
+2026-01-03 15:42:40,858 - INFO - Roster columns after standardization: ['ID', 'Queue', 'Supervisor', 'Shift', 'Batch']
+2026-01-03 15:42:40,859 - INFO - Processed 130 roster records
+2026-01-03 15:42:40,859 - INFO - Roster file processed ok!
+2026-01-03 15:42:40,860 - INFO - Processing code file: .\Exceptions.xlsx
+2026-01-03 15:42:40,905 - INFO - Processed 338 code records
+2026-01-03 15:42:40,906 - INFO - Code file processed ok!
+2026-01-03 15:42:40,906 - INFO - Merging data from all sources
+2026-01-03 15:42:40,926 - ERROR - Error processing files: object of type 'NoneType' has no len()
+2026-01-03 15:42:40,926 - ERROR - Processing failed: object of type 'NoneType' has no len()
+2026-01-03 15:44:30,915 - INFO - Processing schedule file: .\January큦 schedules.xlsx
+2026-01-03 15:44:31,129 - INFO - Original columns: ['ID', 'First Name', ' Last Name', 'Date', 'Day', 'Start', 'Stop']
+2026-01-03 15:44:31,130 - INFO - Original shape: (3472, 7)
+2026-01-03 15:44:31,131 - INFO - Standardized columns: ['ID', 'First Name', 'Last Name', 'Date', 'Day', 'Start', 'Stop']
+2026-01-03 15:44:31,206 - INFO - Processed 3472 schedule records
+2026-01-03 15:44:31,206 - INFO - Schedule file processed ok!
+2026-01-03 15:44:31,207 - INFO - Processing roster file: .\Roster - January  2026 (1).xlsx
+2026-01-03 15:44:31,264 - INFO - Roster columns after standardization: ['ID', 'Queue', 'Supervisor', 'Shift', 'Batch']
+2026-01-03 15:44:31,265 - INFO - Processed 130 roster records
+2026-01-03 15:44:31,266 - INFO - Roster file processed ok!
+2026-01-03 15:44:31,267 - INFO - Processing code file: .\Exceptions.xlsx
+2026-01-03 15:44:31,296 - INFO - Processed 338 code records
+2026-01-03 15:44:31,298 - INFO - Code file processed ok!
+2026-01-03 15:44:31,299 - INFO - Merging data from all sources
+2026-01-03 15:44:31,317 - ERROR - Error processing files: object of type 'NoneType' has no len()
+2026-01-03 15:44:31,318 - ERROR - Processing failed: object of type 'NoneType' has no len()
+2026-01-03 15:46:26,776 - INFO - Processing schedule file: .\January큦 schedules.xlsx
+2026-01-03 15:46:26,931 - INFO - Original columns: ['ID', 'First Name', ' Last Name', 'Date', 'Day', 'Start', 'Stop']
+2026-01-03 15:46:26,932 - INFO - Original shape: (3472, 7)
+2026-01-03 15:46:26,933 - INFO - Standardized columns: ['ID', 'First Name', 'Last Name', 'Date', 'Day', 'Start', 'Stop']
+2026-01-03 15:46:26,992 - INFO - Processed 3472 schedule records
+2026-01-03 15:46:26,993 - INFO - Schedule file processed ok!
+2026-01-03 15:46:26,993 - INFO - Processing roster file: .\Roster - January  2026 (1).xlsx
+2026-01-03 15:46:27,041 - INFO - Roster columns after standardization: ['ID', 'Name', 'Queue', 'Supervisor', 'Shift', 'Batch']
+2026-01-03 15:46:27,042 - INFO - Processed 130 roster records
+2026-01-03 15:46:27,043 - INFO - Roster file processed ok!
+2026-01-03 15:46:27,044 - INFO - Processing code file: .\Exceptions.xlsx
+2026-01-03 15:46:27,068 - INFO - Processed 338 code records
+2026-01-03 15:46:27,069 - INFO - Code file processed ok!
+2026-01-03 15:46:27,070 - INFO - Merging data from all sources
+2026-01-03 15:46:27,078 - ERROR - Error processing files: object of type 'NoneType' has no len()
+2026-01-03 15:46:27,079 - ERROR - Processing failed: object of type 'NoneType' has no len()
+2026-01-03 15:49:09,800 - INFO - Processing schedule file: .\January큦 schedules.xlsx
+2026-01-03 15:49:10,054 - INFO - Original columns: ['ID', 'First Name', ' Last Name', 'Date', 'Day', 'Start', 'Stop']
+2026-01-03 15:49:10,056 - INFO - Original shape: (3472, 7)
+2026-01-03 15:49:10,057 - INFO - Standardized columns: ['ID', 'First Name', 'Last Name', 'Date', 'Day', 'Start', 'Stop']
+2026-01-03 15:49:10,146 - INFO - Processed 3472 schedule records
+2026-01-03 15:49:10,147 - INFO - Schedule file processed ok!
+2026-01-03 15:49:10,148 - INFO - Processing roster file: .\Roster - January  2026 (1).xlsx
+2026-01-03 15:49:10,219 - INFO - Roster columns after standardization: ['ID', 'Name', 'Queue', 'Supervisor', 'Shift', 'Batch']
+2026-01-03 15:49:10,221 - INFO - Processed 130 roster records
+2026-01-03 15:49:10,222 - INFO - Roster file processed ok!
+2026-01-03 15:49:10,223 - INFO - Processing code file: .\Exceptions.xlsx
+2026-01-03 15:49:10,263 - INFO - Processed 338 code records
+2026-01-03 15:49:10,265 - INFO - Code file processed ok!
+2026-01-03 15:49:10,266 - INFO - Merging data from all sources
+2026-01-03 15:49:10,291 - ERROR - Error processing files: object of type 'NoneType' has no len()
+2026-01-03 15:49:10,291 - ERROR - Processing failed: object of type 'NoneType' has no len()
+2026-01-03 16:02:01,054 - INFO - Processing schedule file: .\January큦 schedules.xlsx
+2026-01-03 16:02:01,228 - INFO - Original columns: ['ID', 'First Name', ' Last Name', 'Date', 'Day', 'Start', 'Stop']
+2026-01-03 16:02:01,229 - INFO - Original shape: (3472, 7)
+2026-01-03 16:02:01,230 - INFO - Standardized columns: ['ID', 'First Name', 'Last Name', 'Date', 'Day', 'Start', 'Stop']
+2026-01-03 16:02:01,294 - INFO - Processed 3472 schedule records
+2026-01-03 16:02:01,295 - INFO - Schedule file processed ok!
+2026-01-03 16:02:01,296 - INFO - Processing roster file: .\Roster - January  2026 (1).xlsx
+2026-01-03 16:02:01,359 - INFO - Roster columns after standardization: ['ID', 'Name', 'Queue', 'Supervisor', 'Shift', 'Batch']
+2026-01-03 16:02:01,361 - INFO - Processed 130 roster records
+2026-01-03 16:02:01,362 - INFO - Roster file processed ok!
+2026-01-03 16:02:01,362 - INFO - Processing code file: .\Exceptions.xlsx
+2026-01-03 16:02:01,403 - INFO - Processed 338 code records
+2026-01-03 16:02:01,405 - INFO - Code file processed ok!
+2026-01-03 16:02:01,406 - INFO - Merging data from all sources
+2026-01-03 16:02:01,421 - ERROR - Error processing files: object of type 'NoneType' has no len()
+2026-01-03 16:02:01,422 - ERROR - Processing failed: object of type 'NoneType' has no len()
+2026-01-03 16:02:54,172 - INFO - Processing schedule file: .\January큦 schedules.xlsx
+2026-01-03 16:02:54,428 - INFO - Original columns: ['ID', 'First Name', ' Last Name', 'Date', 'Day', 'Start', 'Stop']
+2026-01-03 16:02:54,429 - INFO - Original shape: (3472, 7)
+2026-01-03 16:02:54,431 - INFO - Standardized columns: ['ID', 'First Name', 'Last Name', 'Date', 'Day', 'Start', 'Stop']
+2026-01-03 16:02:54,518 - INFO - Processed 3472 schedule records
+2026-01-03 16:02:54,519 - INFO - Schedule file processed ok!
+2026-01-03 16:02:54,519 - INFO - Processing roster file: .\Roster - January  2026 (1).xlsx
+2026-01-03 16:02:54,589 - INFO - Roster columns after standardization: ['ID', 'Name', 'Queue', 'Supervisor', 'Shift', 'Batch']
+2026-01-03 16:02:54,591 - INFO - Processed 130 roster records
+2026-01-03 16:02:54,592 - INFO - Roster file processed ok!
+2026-01-03 16:02:54,593 - INFO - Processing code file: .\Exceptions.xlsx
+2026-01-03 16:02:54,626 - INFO - Processed 338 code records
+2026-01-03 16:02:54,629 - INFO - Code file processed ok!
+2026-01-03 16:02:54,629 - INFO - Merging data from all sources
+2026-01-03 16:02:54,656 - ERROR - Error processing files: object of type 'NoneType' has no len()
+2026-01-03 16:02:54,657 - ERROR - Processing failed: object of type 'NoneType' has no len()
+2026-01-03 16:04:46,498 - INFO - Processing schedule file: .\January큦 schedules.xlsx
+2026-01-03 16:04:46,625 - INFO - Original columns: ['ID', 'First Name', ' Last Name', 'Date', 'Day', 'Start', 'Stop']
+2026-01-03 16:04:46,626 - INFO - Original shape: (3472, 7)
+2026-01-03 16:04:46,627 - INFO - Standardized columns: ['ID', 'First Name', 'Last Name', 'Date', 'Day', 'Start', 'Stop']
+2026-01-03 16:04:46,674 - INFO - Processed 3472 schedule records
+2026-01-03 16:04:46,675 - INFO - Schedule file processed ok!
+2026-01-03 16:04:46,676 - INFO - Processing roster file: .\Roster - January  2026 (1).xlsx
+2026-01-03 16:04:46,720 - INFO - Roster columns after standardization: ['ID', 'Name', 'Queue', 'Supervisor', 'Shift', 'Batch']
+2026-01-03 16:04:46,721 - INFO - Processed 130 roster records
+2026-01-03 16:04:46,722 - INFO - Roster file processed ok!
+2026-01-03 16:04:46,722 - INFO - Processing code file: .\Exceptions.xlsx
+2026-01-03 16:04:46,740 - INFO - Processed 338 code records
+2026-01-03 16:04:46,742 - INFO - Code file processed ok!
+2026-01-03 16:04:46,743 - INFO - Merging data from all sources
+2026-01-03 16:04:46,755 - ERROR - Error processing files: object of type 'NoneType' has no len()
+2026-01-03 16:04:46,756 - ERROR - Processing failed: object of type 'NoneType' has no len()
+2026-01-03 16:06:04,434 - INFO - Processing schedule file: .\January큦 schedules.xlsx
+2026-01-03 16:06:04,611 - INFO - Original columns: ['ID', 'First Name', ' Last Name', 'Date', 'Day', 'Start', 'Stop']
+2026-01-03 16:06:04,613 - INFO - Original shape: (3472, 7)
+2026-01-03 16:06:04,614 - INFO - Standardized columns: ['ID', 'First Name', 'Last Name', 'Date', 'Day', 'Start', 'Stop']
+2026-01-03 16:06:04,681 - INFO - Processed 3472 schedule records
+2026-01-03 16:06:04,682 - INFO - Schedule file processed ok!
+2026-01-03 16:06:04,683 - INFO - Processing roster file: .\Roster - January  2026 (1).xlsx
+2026-01-03 16:06:04,744 - INFO - Roster columns after standardization: ['ID', 'Name', 'Queue', 'Supervisor', 'Shift', 'Batch']
+2026-01-03 16:06:04,746 - INFO - Processed 130 roster records
+2026-01-03 16:06:04,747 - INFO - Roster file processed ok!
+2026-01-03 16:06:04,748 - INFO - Processing code file: .\Exceptions.xlsx
+2026-01-03 16:06:04,776 - INFO - Processed 338 code records
+2026-01-03 16:06:04,778 - INFO - Code file processed ok!
+2026-01-03 16:06:04,778 - INFO - Merging data from all sources
+2026-01-03 16:06:04,790 - ERROR - Error processing files: object of type 'NoneType' has no len()
+2026-01-03 16:06:04,791 - ERROR - Processing failed: object of type 'NoneType' has no len()
+2026-01-03 16:07:26,636 - INFO - Processing schedule file: .\January큦 schedules.xlsx
+2026-01-03 16:07:27,012 - INFO - Original columns: ['ID', 'First Name', ' Last Name', 'Date', 'Day', 'Start', 'Stop']
+2026-01-03 16:07:27,014 - INFO - Original shape: (3472, 7)
+2026-01-03 16:07:27,016 - INFO - Standardized columns: ['ID', 'First Name', 'Last Name', 'Date', 'Day', 'Start', 'Stop']
+2026-01-03 16:07:27,182 - INFO - Processed 3472 schedule records
+2026-01-03 16:07:27,183 - INFO - Schedule file processed ok!
+2026-01-03 16:07:27,185 - INFO - Processing roster file: .\Roster - January  2026 (1).xlsx
+2026-01-03 16:07:27,186 - ERROR - Error processing files: [Errno 13] Permission denied: '.\\Roster - January  2026 (1).xlsx'
+2026-01-03 16:07:27,187 - ERROR - Processing failed: [Errno 13] Permission denied: '.\\Roster - January  2026 (1).xlsx'
+2026-01-03 16:07:34,218 - INFO - Processing schedule file: .\January큦 schedules.xlsx
+2026-01-03 16:07:34,508 - INFO - Original columns: ['ID', 'First Name', ' Last Name', 'Date', 'Day', 'Start', 'Stop']
+2026-01-03 16:07:34,510 - INFO - Original shape: (3472, 7)
+2026-01-03 16:07:34,511 - INFO - Standardized columns: ['ID', 'First Name', 'Last Name', 'Date', 'Day', 'Start', 'Stop']
+2026-01-03 16:07:34,615 - INFO - Processed 3472 schedule records
+2026-01-03 16:07:34,616 - INFO - Schedule file processed ok!
+2026-01-03 16:07:34,617 - INFO - Processing roster file: .\Roster - January  2026 (1).xlsx
+2026-01-03 16:07:34,705 - INFO - Roster columns after standardization: ['ID', 'Name', 'Queue', 'Supervisor', 'Shift', 'Batch']
+2026-01-03 16:07:34,708 - INFO - Processed 130 roster records
+2026-01-03 16:07:34,709 - INFO - Roster file processed ok!
+2026-01-03 16:07:34,710 - INFO - Processing code file: .\Exceptions.xlsx
+2026-01-03 16:07:34,755 - INFO - Processed 338 code records
+2026-01-03 16:07:34,757 - INFO - Code file processed ok!
+2026-01-03 16:07:34,758 - INFO - Merging data from all sources
+2026-01-03 16:07:34,776 - ERROR - Error processing files: object of type 'NoneType' has no len()
+2026-01-03 16:07:34,777 - ERROR - Processing failed: object of type 'NoneType' has no len()
+2026-01-05 08:06:08,181 - INFO - Processing schedule file: .\January큦 schedules.xlsx
+2026-01-05 08:06:08,620 - INFO - Original columns: ['ID', 'First Name', ' Last Name', 'Date', 'Day', 'Start', 'Stop']
+2026-01-05 08:06:08,621 - INFO - Original shape: (3472, 7)
+2026-01-05 08:06:08,623 - INFO - Standardized columns: ['ID', 'First Name', 'Last Name', 'Date', 'Day', 'Start', 'Stop']
+2026-01-05 08:06:08,758 - INFO - Processed 3472 schedule records
+2026-01-05 08:06:08,759 - INFO - Schedule file processed ok!
+2026-01-05 08:06:08,760 - INFO - Processing roster file: .\Roster - January  2026 (1).xlsx
+2026-01-05 08:06:08,860 - INFO - Roster columns after standardization: ['ID', 'Name', 'Queue', 'Supervisor', 'Shift', 'Batch']
+2026-01-05 08:06:08,862 - INFO - Processed 130 roster records
+2026-01-05 08:06:08,862 - INFO - Roster file processed ok!
+2026-01-05 08:06:08,863 - INFO - Processing code file: .\Exceptions.xlsx
+2026-01-05 08:06:08,943 - INFO - Processed 338 code records
+2026-01-05 08:06:08,945 - INFO - Code file processed ok!
+2026-01-05 08:06:08,945 - INFO - Merging data from all sources
+2026-01-05 08:06:08,981 - ERROR - Error processing files: object of type 'NoneType' has no len()
+2026-01-05 08:06:08,982 - ERROR - Processing failed: object of type 'NoneType' has no len()
+2026-01-05 08:07:25,519 - INFO - Processing schedule file: .\January큦 schedules.xlsx
+2026-01-05 08:07:25,637 - INFO - Original columns: ['ID', 'First Name', ' Last Name', 'Date', 'Day', 'Start', 'Stop']
+2026-01-05 08:07:25,637 - INFO - Original shape: (3472, 7)
+2026-01-05 08:07:25,638 - INFO - Standardized columns: ['ID', 'First Name', 'Last Name', 'Date', 'Day', 'Start', 'Stop']
+2026-01-05 08:07:25,681 - INFO - Processed 3472 schedule records
+2026-01-05 08:07:25,681 - INFO - Schedule file processed ok!
+2026-01-05 08:07:25,682 - INFO - Processing roster file: .\Roster - January  2026 (1).xlsx
+2026-01-05 08:07:25,716 - INFO - Roster columns after standardization: ['ID', 'Name', 'Queue', 'Supervisor', 'Shift', 'Batch']
+2026-01-05 08:07:25,717 - INFO - Processed 130 roster records
+2026-01-05 08:07:25,718 - INFO - Roster file processed ok!
+2026-01-05 08:07:25,718 - INFO - Processing code file: .\Exceptions.xlsx
+2026-01-05 08:07:25,734 - INFO - Processed 338 code records
+2026-01-05 08:07:25,734 - INFO - Code file processed ok!
+2026-01-05 08:07:25,735 - INFO - Merging data from all sources
+2026-01-05 08:07:25,745 - ERROR - Error processing files: object of type 'NoneType' has no len()
+2026-01-05 08:07:25,746 - ERROR - Processing failed: object of type 'NoneType' has no len()

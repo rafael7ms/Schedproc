@@ -215,12 +215,17 @@ class ScheduleProcessor:
 
         # Read file
         df = pd.read_excel(file_path) if file_path.endswith('.xlsx') else pd.read_csv(file_path)
+        df = df.rename(columns={"Department": "Queue", "BO User" : "ID"})
+        required = ['ID', 'Name', 'Queue', 'Supervisor', 'Shift', 'Batch']
+        df = df[required]
+        df = df.drop_duplicates(subset='ID')
+        print(f"Original roster columns:\n {df}")
 
         # Standardize column names
         df.columns = [self.extract_column_name(col) for col in df.columns]
+        logger.info(f"Roster columns after standardization: {list(df.columns)}")
 
         # Validate required columns
-        required = ['ID', 'Queue', 'Supervisor', 'Shift', 'Batch']
         missing = [col for col in required if col not in df.columns]
         if missing:
             raise ValueError(f"Missing required columns in roster file: {', '.join(missing)}")
@@ -293,6 +298,7 @@ class ScheduleProcessor:
         roster_dict = df_roster.set_index('ID').to_dict('index')
         code_dict = df_code.groupby(['ID', 'Date']).first().to_dict('index')
 
+
         # Get all unique IDs from roster for matching
         roster_ids = df_roster['ID'].unique().tolist()
 
@@ -308,10 +314,12 @@ class ScheduleProcessor:
                 roster_match = roster_dict[schedule_id]
             else:
                 # Try fuzzy matching if exact match not found
+                print(f"didn't find exact match for {schedule_id} in roster")
                 best_match = self.find_best_match(schedule_id, roster_ids)
                 if best_match:
                     logger.warning(f"Using fuzzy match for ID {schedule_id} -> {best_match}")
                     roster_match = roster_dict[best_match]
+                    
 
             # Find matching code data
             code_match = None
@@ -365,6 +373,7 @@ class ScheduleProcessor:
 
         # Create DataFrame from merged data
         df_merged = pd.DataFrame(merged_data)
+        print(df_merged.head())
 
         # Reorder columns
         final_columns = ['ID', 'Name', 'Date', 'Start', 'Stop',
@@ -432,8 +441,11 @@ class ScheduleProcessor:
         try:
             # Process each file
             df_schedule = self.process_schedule_file(schedule_file)
+            logger.info("Schedule file processed ok!")
             df_roster = self.process_roster_file(roster_file)
+            logger.info("Roster file processed ok!")
             df_code = self.process_code_file(code_file)
+            logger.info("Code file processed ok!")
 
             # Merge all data
             df_merged = self.merge_data(df_schedule, df_roster, df_code)
